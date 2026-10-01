@@ -11,8 +11,6 @@ import modelo.vo.PersonaVO;
 @WebServlet("/persona")
 public class PersonaControladorServlet extends HttpServlet {
     private final PersonaDAO dao = new PersonaDAO();
-
-    // ======================== GET ========================
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -22,22 +20,20 @@ public class PersonaControladorServlet extends HttpServlet {
             action = "";
 
         switch (action) {
-            case "agregar": // mostrar formulario de alta (GET)
+            case "agregar": // mostrar formulario de alta 
                 request.getRequestDispatcher("/WEB-INF/vista/persona-form.jsp")
                         .forward(request, response);
             break;
 
-            case "listar": // listar explícito
+            case "listar": // listar 
                 listar(request, response);
                 break;
 
-            default: // sin action o desconocida → listar
+            default: // sin action o desconocida
                 listar(request, response);
                 break;
         }
     }
-
-    // ======================== POST ========================
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,13 +54,13 @@ public class PersonaControladorServlet extends HttpServlet {
         }
     }
 
-    // ===================== Acciones privadas =====================
+    
     private void agregar(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int codigo = Integer.parseInt(request.getParameter("codigo"));
         String nombre = request.getParameter("nombre");
         dao.agregar(new PersonaVO(codigo, nombre));
-        response.sendRedirect(request.getContextPath() + "/persona"); // PRG → listar
+        response.sendRedirect(request.getContextPath() + "/persona"); // 
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response)
