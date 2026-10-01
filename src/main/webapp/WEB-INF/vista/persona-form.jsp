@@ -10,7 +10,6 @@
     <div class="form-container">
       <h1>Agregar Persona</h1>
 
-      <!-- POST al Servlet con action=agregar -->
       <form action="${pageContext.request.contextPath}/persona" method="post">
         <input type="hidden" name="action" value="agregar" />
 
