@@ -36,7 +36,7 @@
                       Editar
                     </button>
 
-                    <!-- Botón Eliminar deshabilitado -->
+    
                     <button
                       disabled
                       class="btn-disabled"
